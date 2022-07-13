@@ -19,15 +19,19 @@ const Dashboard = () => {
   
   return (
     <>
-    <div style={{padding:10}}>
-      <Link to="/">
-        <HomeIcon fontSize='large'/>
-      </Link>
-    </div>
-      <div style={{position:'absolute',left:"calc(50% - 172px)"}}>
+
+      <div style={{position:'absolute',left:"calc(50% - 350px)"}}>
       {
         postID != undefined && posts.length > 0 ?
-        <Posts key ={posts[postID-1]?.id} post = {posts[postID-1]} /> :
+        <div>
+          <div style={{padding:10}}>
+              <Link to="/">
+                <HomeIcon fontSize='large'/>
+              </Link>
+          </div>
+        <Posts key ={posts[postID-1]?.id} post = {posts[postID-1]} />
+        </div>
+         :
         posts.length > 0 ?
         posts?.map(post => <Posts key ={post?.id} post = {post}/>):null
       }    
